@@ -1,0 +1,83 @@
+@media screen and (max-width: 768px){
+    #container{
+        width: 100%;
+    }
+    header{
+        height: clamp(0px, 35vw, 268px);
+    }
+    #search-div{
+        top: clamp(0px, 32vw, 248px);
+    }
+    #s-input{
+        width: clamp(0px, 35vw, 20rem);
+    }
+    #s-icon{
+        height: 0.8rem;
+    }
+    #s-input, #s-btn, .suggestions{
+        font-size: 0.8rem;
+    }
+    #s-icon, #s-input, #s-btn{
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+    main{
+        padding-top: 70px;
+        width: 100%;
+        min-height: calc(100vh - 70px - clamp(0px, 35vw, 268px));
+    }
+    main > h3{
+        font-size: 1.1rem;
+    }
+    main > img{
+        width: 50px;
+    }
+    .movie{
+        width: 85vw;
+        gap: 3vw;
+        padding: 17px 0px;
+    }
+    .div2 > h5{
+        font-size: 2.5vw;
+    }
+    .div2 > h5 > span{
+        font-size: 1.8vw;
+    }
+    .div2 > h5 > span > img{
+        height: 2vw;
+    }
+    .div2 > h6{
+        font-size: 2vw;
+    }
+    .div2 > p{
+        font-size: 2.15vw;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #container{
+        width: 100%;
+    }
+    header{
+        height: clamp(220px, 35vw, 290px);
+    }
+    #search-div{
+        top: clamp(205px, 32vw, 275px);
+    }
+    #s-input{
+        width: 20rem;
+    }
+    main{
+        padding-top: 90px;
+        width: 100%;
+        min-height: calc(100vh - clamp(220px, 35vw, 290px) - 90px);
+    }
+    main > h3{
+        font-size: 1.2rem;
+    }
+    main > img{
+        width: 60px;
+    }
+    .movie{
+        width: 680px;
+    }
+}

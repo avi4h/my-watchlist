@@ -1,0 +1,22 @@
+.flex-c{
+    display: flex;
+    flex-direction: column;
+}
+.flex-r{
+    display: flex;
+}
+.justify-sb{
+    justify-content: space-between;
+}
+.justify-fs{
+    justify-content: flex-start;
+}
+.justify-c{
+    justify-content: center;
+}
+.align-c{
+    align-items: center;
+}
+.border{
+    border: 2px solid red;
+}
