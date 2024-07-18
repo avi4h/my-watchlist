@@ -1,4 +1,4 @@
-const baseUrl = "http://www.omdbapi.com/?&apikey=370610da"
+const baseUrl = "https://www.omdbapi.com/?&apikey=370610da"
 
 
 document.addEventListener("DOMContentLoaded", () => {
