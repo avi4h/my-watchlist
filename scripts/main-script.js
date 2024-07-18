@@ -51,15 +51,26 @@ async function fetchMovies(query) {
             const res = await fetch(`${baseUrl}&i=${id}`)
             const mov = await res.json()
 
+            const title = mov.Title
+            const rating = mov.imdbRating
+            const runtime = mov.Runtime
+            const genre = mov.Genre
+            const plot = mov.Plot
+            const poster = mov.Poster
+            
+            if (mov.Poster === "N/A") {
+                return " "
+            }
+
             return `
                     <div class="movie">
                         <div class="div1">
-                            <img src="${mov.Poster}" alt="${mov.Title}">
+                            <img src="${poster}" alt="${title}">
                         </div>
                         <div class="div2">
-                            <h5>${mov.Title}&nbsp;&nbsp;&nbsp;<span><img src="../img/icons/star.svg" />&nbsp;${mov.imdbRating}<span></h5>
-                            <h6>${mov.Runtime}&nbsp;&nbsp;&nbsp;${mov.Genre}</h6>
-                            <p>${mov.Plot}</p>
+                            <h5>${title}&nbsp;&nbsp;&nbsp;<span><img src="../img/icons/star.svg" />&nbsp;${rating}<span></h5>
+                            <h6>${runtime}&nbsp;&nbsp;&nbsp;${genre}</h6>
+                            <p>${plot}</p>
                         </div>
                     </div>`
         }))

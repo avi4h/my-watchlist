@@ -120,16 +120,17 @@ header{
 
 /* Search-Suggestions */
 .suggestions {
-    padding: 10px 0px;
+    padding: 10px 15px;
     box-sizing: border-box;
-    width: 100%;
+    width: 510.26px;
     background-color: rgba(141, 141, 141, 0.5);
     border-radius: 0 0 4px 4px;
     display: none;
     color: rgb(231, 231, 231);
 }
 .suggestions .suggestion-item {
-    padding: 10px 15px 10px 20px;
+    width: 100%;
+    padding: 10px 0px;
     cursor: pointer;
 }
 .suggestions .suggestion-item:last-child {
