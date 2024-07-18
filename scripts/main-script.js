@@ -1,10 +1,11 @@
 const baseUrl = "https://www.omdbapi.com/?&apikey=370610da"
 
-
 const searchInput = document.getElementById("s-input")
 const suggestionsContainer = document.getElementById("suggestions")
 const btnEl = document.getElementById("s-btn")
 const mainEl = document.getElementById("main")
+const loadingModal = document.getElementById('loadingModal')
+
 
 searchInput.addEventListener("input", async () => {
     const query = searchInput.value
@@ -18,14 +19,16 @@ searchInput.addEventListener("input", async () => {
 
 btnEl.addEventListener("click", () => {
     const query = searchInput.value
-    fetchMovies(query)
     suggestionsContainer.style.display = "none"
+    loadingModal.style.display = 'flex'
+    fetchMovies(query)
 })
 
 suggestionsContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("suggestion-item")) {
         searchInput.value = e.target.textContent
         suggestionsContainer.style.display = "none"
+        loadingModal.style.display = 'flex'
         fetchMovies(e.target.textContent)
     }
 })
@@ -41,6 +44,7 @@ async function fetchMovies(query) {
     const data = await response.json()
     if (data.Response === "False") {
         mainEl.innerHTML = `<h3>Unable to find what you’re looking for. Please try another search</h2>`
+        loadingModal.style.display = 'none'
         return
     }
     else {
@@ -76,6 +80,7 @@ async function fetchMovies(query) {
         }))
 
         mainEl.innerHTML = htmlMovies.join("")
+        loadingModal.style.display = 'none'
     }
 }
 
@@ -94,6 +99,5 @@ function displaySuggestions(suggestions) {
         suggestionsContainer.style.display = "none"
     }
 }
-
 
 
