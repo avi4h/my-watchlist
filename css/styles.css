@@ -224,9 +224,13 @@ main>img {
     line-height: 1.5;
 }
 
-.div2>h5>span {
+.div2 >h5 > span {
     font-size: 0.9rem;
     font-weight: 400;
+}
+
+.div2 > h5 > span > img{
+    width: 1.1em;
 }
 
 .div2>h6 {
@@ -241,7 +245,7 @@ main>img {
 
 .div2 > h6 > span > img{
     cursor:initial;
-    height: 1em;
+    width: 1em;
 }
 
 .div2>p {

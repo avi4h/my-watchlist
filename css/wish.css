@@ -68,6 +68,7 @@ main {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    justify-content: flex-end;
     padding: 80px 0px;
     align-self: center;
     width: 100%;
@@ -119,7 +120,7 @@ main > h3 > a > img{
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
 }
 
-.div1>img {
+.div1 > img {
     display: block;
     width: 100%;
     height: 100%;
@@ -132,18 +133,22 @@ main > h3 > a > img{
     justify-content: space-evenly;
 }
 
-.div2>h5 {
+.div2 > h5 {
     font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.5;
 }
 
-.div2>h5>span {
+.div2 > h5 > span {
     font-size: 0.9rem;
     font-weight: 400;
 }
 
-.div2>h6 {
+.div2 > h5 > span > img{
+    width: 1.1em;
+}
+
+.div2 > h6 {
     font-size: 1rem;
     font-weight: 400;
 }
@@ -153,9 +158,9 @@ main > h3 > a > img{
     cursor: pointer;
 }
 
-.div2>h6>span>img{
+.div2 > h6 > span > img{
     cursor:initial;
-    height: 1em;
+    width: 1em;
 }
 
 
@@ -197,9 +202,6 @@ main > h3 > a > img{
     }
     .div2 > h5 > span{
         font-size: 1.8vw;
-    }
-    .div2 > h5 > span > img{
-        height: 2vw;
     }
     .div2 > h6{
         font-size: 2vw;
