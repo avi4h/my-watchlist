@@ -159,10 +159,12 @@ main > h3 > a > img{
 }
 
 .div2 > h6 > span > img{
+    display: inline-block;
     cursor:initial;
-    width: 1em;
+    height: 1em;
+    vertical-align:middle;
+    margin-bottom: 0.2em;
 }
-
 
 .div2>p {
     font-size: 1.1rem;
