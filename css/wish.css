@@ -24,7 +24,7 @@ body {
 
 /* Header */
 header {
-    background-image: url("/img/bg/main1.webp");
+    background-image: url("../img/bg/main1.webp");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -63,104 +63,10 @@ header {
 
 
 
-/* Search */
-#search-div {
-    position: absolute;
-    top: 270px;
-    left: 0;
-    right: 0;
-}
-
-#search {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: rgba(46, 46, 47, 1);
-    border-radius: 5px;
-    box-shadow: 2px 5px 15px black;
-}
-
-#search-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-#s-icon {
-    padding: 12px 5px 12px 15px;
-}
-
-#s-input {
-    background-color: rgba(46, 46, 47, 1);
-    padding: 12px 20px 12px 10px;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    width: clamp(5rem, 45vw, 22.5rem);
-    color: white;
-}
-
-#s-input:active {
-    border: none;
-    outline: none;
-}
-
-#s-input:focus {
-    border: none;
-    outline: none;
-}
-
-#s-btn {
-    background-color: rgb(71, 71, 71);
-    color: rgb(223, 223, 223);
-    font-weight: 500;
-    font-size: 14px;
-    border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 12px 20px;
-}
-
-#s-btn:hover {
-    color: white;
-    background-color: rgb(101, 101, 101);
-}
-
-
-
-/* Search-Suggestions */
-.suggestions {
-    padding: 10px 15px;
-    box-sizing: border-box;
-    width: 510.26px;
-    background-color: rgba(141, 141, 141, 0.5);
-    border-radius: 0 0 4px 4px;
-    display: none;
-    color: rgb(231, 231, 231);
-}
-
-.suggestions .suggestion-item {
-    width: 100%;
-    padding: 10px 0px;
-    cursor: pointer;
-}
-
-.suggestions .suggestion-item:last-child {
-    border-bottom: none;
-}
-
-.suggestions .suggestion-item:hover {
-    background-color: #96969662;
-}
-
-
-
 /* Main */
 main {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     padding-top: 80px;
     align-self: center;
@@ -172,7 +78,7 @@ main {
 
 
 /* Main-Placeholder */
-main>h3 {
+main > h3 {
     font-weight: 600;
     font-size: 1.4rem;
     color: rgb(116, 116, 116);
@@ -180,11 +86,19 @@ main>h3 {
     padding: 0.7em 5vw 0px;
 }
 
-main>img {
+main > img {
     align-self: center;
 }
 
-
+main > h3 > a{
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
+main > h3 > a > img{
+    height: 1rem;
+}
 
 /* Main-Actual */
 .movie {
@@ -239,10 +153,11 @@ main>img {
     cursor: pointer;
 }
 
-.div2 > h6 > span > img{
+.div2>h6>span>img{
     cursor:initial;
     height: 1em;
 }
+
 
 .div2>p {
     font-size: 1.1rem;
@@ -251,17 +166,70 @@ main>img {
 }
 
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(130, 130, 130, 0.4);
-    justify-content: center;
-    align-items: center;
+@media screen and (max-width: 768px){
+    #container{
+        width: 100%;
+    }
+    header{
+        height: clamp(0px, 35vw, 268px);
+    }
+    main{
+        padding-top: 70px;
+        width: 100%;
+        min-height: calc(100vh - 70px - clamp(0px, 35vw, 268px));
+    }
+    main > h3{
+        font-size: 1.1rem;
+    }
+    main > h3 > a{
+        font-size: 0.95rem;
+    }
+    main > h3 > a > img{
+        height: 0.75rem;
+    }
+    .movie{
+        width: 85vw;
+        gap: 3vw;
+        padding: 17px 0px;
+    }
+    .div2 > h5{
+        font-size: 2.5vw;
+    }
+    .div2 > h5 > span{
+        font-size: 1.8vw;
+    }
+    .div2 > h5 > span > img{
+        height: 2vw;
+    }
+    .div2 > h6{
+        font-size: 2vw;
+    }
+    .div2 > p{
+        font-size: 2.15vw;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #container{
+        width: 100%;
+    }
+    header{
+        height: clamp(220px, 35vw, 290px);
+    }
+    main{
+        padding-top: 90px;
+        width: 100%;
+        min-height: calc(100vh - clamp(220px, 35vw, 290px) - 90px);
+    }
+    main > h3{
+        font-size: 1.2rem;
+    }
+    main > h3 > a{
+        font-size: 1rem;
+    }
+    main > h3 > a > img{
+        height: 0.85rem;
+    }
+    .movie{
+        width: 680px;
+    }
 }
