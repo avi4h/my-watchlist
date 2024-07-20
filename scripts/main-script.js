@@ -45,26 +45,25 @@ document.addEventListener("click", function(e) {
 
 
 searchInput.addEventListener("input", async () => {
+    suggestionsContainer.style.display = "none"
     const query = searchInput.value
     if (query.length > 0) {
         const suggestions = await fetchSuggestions(query)
         displaySuggestions(suggestions.slice(0, 5))
-    } else {
-        suggestionsContainer.style.display = "none"
     }
 })
 
 btnEl.addEventListener("click", () => {
     const query = searchInput.value
+    suggestionsContainer.style.display = "none"
     if (query.length > 2){
-        suggestionsContainer.style.display = "none"
         loadingModal.style.display = 'flex'
         fetchMovies(query)
     }
     else if (query.length > 0) {
-        suggestionsContainer.style.display = "none"
         mainEl.innerHTML = `<h3>Search query must be at least 3 characters long</h3>`
     }
+    suggestionsContainer.style.display = "none"
 })
 
 suggestionsContainer.addEventListener("click", (e) => {
@@ -73,6 +72,7 @@ suggestionsContainer.addEventListener("click", (e) => {
         suggestionsContainer.style.display = "none"
         loadingModal.style.display = 'flex'
         fetchMovies(e.target.textContent)
+        suggestionsContainer.style.display = "none"
     }
 })
 
@@ -83,6 +83,7 @@ async function fetchSuggestions(query) {
 }
 
 async function fetchMovies(query) {
+    suggestionsContainer.style.display = "none"
     const response = await fetch(`${baseUrl}&s=${query}`)
     const data = await response.json()
     if (data.Response === "False") {
