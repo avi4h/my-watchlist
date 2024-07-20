@@ -9,8 +9,8 @@ const mainEl = document.getElementById("main")
 const loadingModal = document.getElementById('loadingModal')
 
 
-document.addEventListener("click", function(e) {
-    if(e.target.dataset && e.target.dataset.imdb && e.target.dataset.add==="0"){
+document.addEventListener("click", function (e) {
+    if (e.target.dataset && e.target.dataset.imdb && e.target.dataset.add === "0") {
         const imdbId = e.target.dataset.imdb
         const movieDiv = document.querySelector(`#movie-${imdbId}`)
 
@@ -25,7 +25,7 @@ document.addEventListener("click", function(e) {
         const runtime = movieDiv.querySelector('.div2 h6').textContent.split(/\s{2,}/)[0].trim()
         const genre = movieDiv.querySelector('.div2 h6').textContent.split(/\s{2,}/)[1].trim()
         const plot = movieDiv.querySelector('.div2 p').textContent.trim()
-    
+
         const movieData = {
             imdbId,
             poster,
@@ -56,7 +56,7 @@ searchInput.addEventListener("input", async () => {
 btnEl.addEventListener("click", () => {
     const query = searchInput.value
     suggestionsContainer.style.display = "none"
-    if (query.length > 2){
+    if (query.length > 2) {
         loadingModal.style.display = 'flex'
         fetchMovies(query)
     }
@@ -65,6 +65,22 @@ btnEl.addEventListener("click", () => {
     }
     suggestionsContainer.style.display = "none"
 })
+
+searchInput.addEventListener('keydown', (event) => {
+    if (searchInput.value.length > 0 && event.key === 'Enter') {
+        const query = searchInput.value
+        suggestionsContainer.style.display = "none"
+        if (query.length > 2) {
+            loadingModal.style.display = 'flex'
+            fetchMovies(query)
+        }
+        else if (query.length > 0) {
+            mainEl.innerHTML = `<h3>Search query must be at least 3 characters long</h3>`
+        }
+        suggestionsContainer.style.display = "none"
+    }
+})
+
 
 suggestionsContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("suggestion-item")) {
@@ -110,8 +126,8 @@ async function fetchMovies(query) {
 
             const addNumber = addValue ? "1" : "0"
             const addLoc = addValue ? "/img/icons/added.svg" : "/img/icons/add.svg"
-            const addText = addValue ? "Added" : "Watchlist" 
-            
+            const addText = addValue ? "Added" : "Watchlist"
+
             if (mov.Poster === "N/A") {
                 return " "
             }
