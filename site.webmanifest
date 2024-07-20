@@ -1,6 +1,6 @@
 {
-    "name": "My WishList",
-    "short_name": "Wishlist",
+    "name": "My WatchList",
+    "short_name": "Watchlist",
     "icons": [
         {
             "src": "/img/logo/android-chrome-192x192.png",

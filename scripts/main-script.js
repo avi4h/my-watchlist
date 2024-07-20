@@ -1,5 +1,5 @@
 const baseUrl = "https://www.omdbapi.com/?&apikey=370610da"
-let wishlistArray = localStorage.getItem('wishlist') ? JSON.parse(localStorage.getItem('wishlist')) : []
+let watchlistArray = localStorage.getItem('watchlist') ? JSON.parse(localStorage.getItem('watchlist')) : []
 
 
 const searchInput = document.getElementById("s-input")
@@ -14,10 +14,10 @@ document.addEventListener("click", function(e) {
         const imdbId = e.target.dataset.imdb
         const movieDiv = document.querySelector(`#movie-${imdbId}`)
 
-        const addToWishListEl = movieDiv.querySelector('.div2 h6').childNodes[1]
-        addToWishListEl.innerHTML = `<img src="/img/icons/added.svg" alt="added icon" />&nbsp;Added`
-        addToWishListEl.dataset.imdb = imdbId
-        addToWishListEl.dataset.add = "1"
+        const addToWatchListEl = movieDiv.querySelector('.div2 h6').childNodes[1]
+        addToWatchListEl.innerHTML = `<img src="/img/icons/added.svg" alt="added icon" />&nbsp;Added`
+        addToWatchListEl.dataset.imdb = imdbId
+        addToWatchListEl.dataset.add = "1"
 
         const poster = movieDiv.querySelector('.div1 img').src
         const title = movieDiv.querySelector('.div2 h5').childNodes[0].textContent.trim()
@@ -36,9 +36,9 @@ document.addEventListener("click", function(e) {
             plot
         }
 
-        wishlistArray.push(movieData)
+        watchlistArray.push(movieData)
 
-        localStorage.setItem('wishlist', JSON.stringify(wishlistArray))
+        localStorage.setItem('watchlist', JSON.stringify(watchlistArray))
 
     }
 })
@@ -106,11 +106,11 @@ async function fetchMovies(query) {
             const plot = mov.Plot
             const poster = mov.Poster
 
-            const addValue = wishlistArray.some(movie => movie.imdbId === id)
+            const addValue = watchlistArray.some(movie => movie.imdbId === id)
 
             const addNumber = addValue ? "1" : "0"
             const addLoc = addValue ? "/img/icons/added.svg" : "/img/icons/add.svg"
-            const addText = addValue ? "Added" : "Wishlist" 
+            const addText = addValue ? "Added" : "Watchlist" 
             
             if (mov.Poster === "N/A") {
                 return " "

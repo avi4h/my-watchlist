@@ -1,30 +1,29 @@
-let wishlistArray = localStorage.getItem('wishlist') ? JSON.parse(localStorage.getItem('wishlist')) : []
+let watchlistArray = localStorage.getItem('watchlist') ? JSON.parse(localStorage.getItem('watchlist')) : []
 const mainEl = document.getElementById("main")
 
-fetchWishlist()
+fetchWatchlist()
 
 document.addEventListener("click", function(e) {
     if(e.target.dataset && e.target.dataset.imdb){
         const imdbId = e.target.dataset.imdb
-        const movieDiv = document.querySelector(`#movie-${imdbId}`)
 
-        const index = wishlistArray.findIndex(movie => movie.imdbId === imdbId)
-        wishlistArray.splice(index, 1)
+        const index = watchlistArray.findIndex(movie => movie.imdbId === imdbId)
+        watchlistArray.splice(index, 1)
 
-        fetchWishlist()
+        fetchWatchlist()
 
-        localStorage.setItem('wishlist', JSON.stringify(wishlistArray))
+        localStorage.setItem('watchlist', JSON.stringify(watchlistArray))
     }
 })
 
 
-function fetchWishlist() {
-    if (wishlistArray.length === 0) {
+function fetchWatchlist() {
+    if (watchlistArray.length === 0) {
         mainEl.innerHTML = `<h3>Your watchlist is looking a little empty...</h3>
             <h3><a href="/index.html "><img src="/img/icons/add.svg" alt="add-icon" />&nbsp;&nbsp;Let’s add some movies!</a></h2>`
     }
     else {
-        let htmlMovies = wishlistArray.map( function(movie){
+        let htmlMovies = watchlistArray.map( function(movie){
             const id = movie.imdbId
             const title = movie.title
             const rating = movie.rating
